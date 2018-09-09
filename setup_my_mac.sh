@@ -55,7 +55,7 @@ mvn -v || brew install maven
 echo Maven installed
 
 echo checking Vim
-if [ `vim --version | grep +lua | wc -l` -eq 0 ]
+if [ `vim --version 2>&1 | grep +lua | wc -l` -eq 0 ]
 then
     install_vim_spf
 fi
@@ -63,7 +63,7 @@ echo Vim installed
 
 # cpp
 echo checking C development environment
-if [ `gcc -v | grep llvm | wc -l` -eq 1 ]
+if [ `gcc -v 2>&1 | grep llvm | wc -l` -gt 0 ]
 then
     install_cpp
 fi
